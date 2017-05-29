@@ -47,8 +47,7 @@ func GetConnectorProperties(isMultipath bool) (*api.ConnectorProperties, error) 
 		Multipath: isMultipath,
 	}
 
-	log.Printf("Start POST request to initialize volume, url = %s, body = %+v\n",
-		url, initReq)
+	// log.Printf("Start POST request to initialize volume, url = %s, body = %+v\n", url, initReq)
 
 	req := httplib.Post(url).SetTimeout(100*time.Second, 50*time.Second)
 	req.JSONBody(initReq)
@@ -86,8 +85,7 @@ type Connector struct {
 func (conn *Connector) ConnectVolume() (string, error) {
 	url := URL_PREFIX + "/Volume/Connect"
 
-	log.Printf("Start POST request to connect volume, url = %s, body = %+v\n",
-		url, conn)
+	// log.Printf("Start POST request to connect volume, url = %s, body = %+v\n", url, conn)
 
 	req := httplib.Post(url).SetTimeout(100*time.Second, 50*time.Second)
 	req.JSONBody(conn)
@@ -117,8 +115,7 @@ func (conn *Connector) ConnectVolume() (string, error) {
 func (conn *Connector) DisconnectVolume() (string, error) {
 	url := URL_PREFIX + "/Volume/Disconnect"
 
-	log.Printf("Start POST request to disconnect volume, url = %s, body = %+v\n",
-		url, conn)
+	// log.Printf("Start POST request to disconnect volume, url = %s, body = %+v\n", url, conn)
 
 	req := httplib.Post(url).SetTimeout(100*time.Second, 50*time.Second)
 	req.JSONBody(conn)
